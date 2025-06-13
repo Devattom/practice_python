@@ -1,0 +1,10 @@
+# Packages de base pour le développement Python
+ipython==8.18.1
+jupyter==1.0.0
+matplotlib==3.8.2
+pandas==2.1.4
+numpy==1.26.2
+requests==2.31.0
+
+# Packages utiles pour les exercices
+random2==1.0.1
