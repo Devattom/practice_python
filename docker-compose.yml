@@ -1,0 +1,30 @@
+services:
+  python-dev:
+    build: .
+    container_name: python-env
+    volumes:
+      - .:/app
+      - python-packages:/usr/local/lib/python3.12/site-packages
+    working_dir: /app
+    stdin_open: true
+    tty: true
+    ports:
+      - "8888:8888"  # Pour Jupyter Notebook
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+    command: tail -f /dev/null  # Garde le container en vie
+
+  # Service optionnel pour Jupyter
+  jupyter:
+    build: .
+    container_name: jupyter-env
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "8889:8888"
+    command: jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=''
+
+volumes:
+  python-packages:
