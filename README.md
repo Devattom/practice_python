@@ -1,3 +1,3 @@
 # Practice Python
 
-SMall repo to save some little practices on python
+Small repo to save some little practices on python
